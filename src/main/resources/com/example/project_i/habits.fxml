@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_i.HabitController">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Title -->
+    <Label text="Habit Tracker" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+
+    <!-- Input Fields -->
+    <GridPane hgap="10" vgap="10">
+        <Label text="Habit Name:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <TextField fx:id="habitField" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+        <Label text="Start Date:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <DatePicker fx:id="startDatePicker" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+        <Label text="Status:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <ChoiceBox fx:id="statusChoiceBox" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+        <!-- Buttons -->
+        <HBox spacing="10" alignment="CENTER_RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Button text="Add Habit" onAction="#handleAddHabit"/>
+            <Button text="Update Habit" onAction="#handleUpdateHabit"/>
+            <Button text="Delete Habit" onAction="#handleDeleteHabit"/>
+        </HBox>
+    </GridPane>
+
+    <!-- Table View -->
+    <TableView fx:id="habitTableView" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="idColumn" text="ID" prefWidth="50"/>
+            <TableColumn fx:id="habitNameColumn" text="Habit Name" prefWidth="200"/>
+            <TableColumn fx:id="startDateColumn" text="Start Date" prefWidth="150"/>
+            <TableColumn fx:id="statusColumn" text="Status" prefWidth="100"/>
+        </columns>
+    </TableView>
+
+    <!-- Back Button -->
+    <Button text="Back" onAction="#handleBack" alignment="CENTER_RIGHT" />
+</VBox>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_i.RegisterController">
+   <children>
+      <VBox alignment="CENTER" layoutX="54.0" prefHeight="500.0" prefWidth="350.0" style="-fx-background-color: yellow;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="450.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="182.0" fitWidth="222.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@resources/847749560b5b8290f63622b241397cd2.jpg" />
+               </image>
+            </ImageView>
+         </children></VBox>
+      <VBox alignment="CENTER" layoutX="477.0" layoutY="134.0" prefHeight="500.0" prefWidth="100.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="57.0" prefWidth="450.0">
+               <VBox.margin>
+                  <Insets top="-250.0" />
+               </VBox.margin>
+               <children>
+                  <Label style="-fx-font-weight: Bold;" text="User Registration" textFill="#8de8d6">
+                     <font>
+                        <Font name="Georgia Bold" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="55.0" prefWidth="450.0">
+               <children>
+                  <Label style="-fx-font-weight: Bold;" text="Username" textFill="#8de8d6">
+                     <HBox.margin>
+                        <Insets left="-200.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="usernameField" prefHeight="30.0" prefWidth="250.0" promptText="enter username">
+                     <HBox.margin>
+                        <Insets left="35.0" right="-200.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" top="50.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="111.0" prefHeight="55.0" prefWidth="450.0">
+               <children>
+                  <Label style="-fx-font-weight: Bold;" text="Password" textFill="#8de8d6">
+                     <HBox.margin>
+                        <Insets left="-200.0" />
+                     </HBox.margin>
+                  </Label>
+                  <PasswordField fx:id="passwordField" prefHeight="30.0" prefWidth="250.0" promptText="enter password">
+                     <HBox.margin>
+                        <Insets left="35.0" right="-200.0" />
+                     </HBox.margin>
+                  </PasswordField>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="76.0" prefWidth="450.0">
+               <children>
+                  <Label style="-fx-font-weight: Bold;" text="Email" textFill="#8de8d6">
+                     <HBox.margin>
+                        <Insets left="-200.0" right="30.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="emailField" prefHeight="30.0" prefWidth="250.0" promptText="enter email">
+                     <HBox.margin>
+                        <Insets left="30.0" right="-200.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="-100.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0">
+               <VBox.margin>
+                  <Insets bottom="-200.0" top="100.0" />
+               </VBox.margin>
+               <children>
+                  <Button fx:id="registerButton" mnemonicParsing="false" onAction="#handleRegister" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: yellow;" text="Register">
+                     <HBox.margin>
+                        <Insets left="20.0" right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="loginButton" mnemonicParsing="false" onAction="#handleLogin" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: yellow;" text="Go To Login">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

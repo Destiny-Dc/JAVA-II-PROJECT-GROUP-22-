@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="563.0" prefWidth="1049.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_i.TaskController">
+    <children>
+        <VBox alignment="TOP_CENTER" layoutX="20.0" layoutY="20.0" prefHeight="536.0" prefWidth="999.0" spacing="20.0" AnchorPane.rightAnchor="10.0">
+            <children>
+                <HBox alignment="CENTER_LEFT" spacing="15.0" style="-fx-background-color: black; -fx-padding: 10;">
+                    <children>
+                        <Label style="-fx-font-size: 16px; -fx-text-fill: white;" text="Task: " textFill="WHITE">
+                     <font>
+                        <Font name="Georgia" size="11.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="-7.0" />
+                     </HBox.margin></Label>
+                        <TextField fx:id="taskField" prefHeight="25.0" prefWidth="250.0">
+                     <HBox.margin>
+                        <Insets right="-5.0" />
+                     </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor></TextField>
+                        <Label style="-fx-font-size: 16px; -fx-text-fill: white;" text="Due Date: " textFill="WHITE">
+                     <font>
+                        <Font name="Georgia" size="11.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="-8.0" />
+                     </HBox.margin></Label>
+                        <DatePicker fx:id="dueDatePicker" prefHeight="25.0" prefWidth="250.0">
+                     <HBox.margin>
+                        <Insets right="-5.0" />
+                     </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></DatePicker>
+                        <Label style="-fx-font-size: 16px; -fx-text-fill: white;" text="Status: " textFill="WHITE">
+                     <font>
+                        <Font name="Georgia" size="11.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="-10.0" />
+                     </HBox.margin></Label>
+                        <ChoiceBox fx:id="statusChoiceBox" prefHeight="25.0" prefWidth="250.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></ChoiceBox>
+                    </children>
+                </HBox>
+                <TableView fx:id="taskTableView" prefHeight="506.0" prefWidth="861.0" style="-fx-background-color: #ffffff; -fx-border-color: black;">
+                    <columns>
+                  <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
+                        <TableColumn fx:id="taskNameColumn" prefWidth="320.0" text="Task Name">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="taskName" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="dueDateColumn" prefWidth="371.0" text="Due Date">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="dueDate" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="statusColumn" prefWidth="359.0" text="Status">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="status" />
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+               <VBox.margin>
+                  <Insets right="120.0" />
+               </VBox.margin>
+                </TableView>
+            </children>
+        </VBox>
+      <VBox layoutX="919.0" layoutY="74.0" prefHeight="506.0" prefWidth="130.0">
+         <children>
+                <Button fx:id="backButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleBack" prefHeight="75.0" prefWidth="150.0" style="-fx-font-size: 16px; -fx-background-color: white; -fx-text-fill: #000000;" text="Back">
+               <font>
+                  <Font name="Georgia" size="11.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="65.0" />
+               </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@resources/8d97eb6cb2181fa7c89c9e15826c878a.jpg" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="40.0" top="-50.0" />
+               </VBox.margin>
+            </ImageView>
+                  <Button fx:id="addTaskButton" mnemonicParsing="false" onAction="#handleAddTask" prefHeight="75.0" prefWidth="150.0" style="-fx-font-size: 16px; -fx-background-color: blue; -fx-text-fill: white;" text="Add Task" textFill="WHITE">
+               <font>
+                  <Font name="Georgia" size="11.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <ImageView fitHeight="27.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@resources/download.png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="50.0" top="-50.0" />
+               </VBox.margin>
+            </ImageView>
+            <Button fx:id="updateButton" mnemonicParsing="false" onAction="#handleUpdateTask" prefHeight="75.0" prefWidth="150.0" style="-fx-background-color: green; -fx-text-fill: white;" text="Update" textFill="WHITE">
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <ImageView fitHeight="29.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@resources/84-846044_update-icon.png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="50.0" top="-50.0" />
+               </VBox.margin>
+            </ImageView>
+            <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#handleDeleteTask" prefHeight="75.0" prefWidth="150.0" style="-fx-background-color: red; -fx-text-fill: white;" text="Delete Task" textFill="WHITE">
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <ImageView fitHeight="26.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@resources/3384384.png" />
+               </image>
+               <VBox.margin>
+                  <Insets top="-50.0" />
+               </VBox.margin></ImageView>
+         </children>
+      </VBox>
+    </children>
+</AnchorPane>

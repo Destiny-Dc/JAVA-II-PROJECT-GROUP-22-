@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" spacing="10.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_i.RemindersController">
+    <children>
+        <Label prefHeight="35.0" prefWidth="292.0" style="-fx-font-size: 24px; -fx-text-fill: black; -fx-font-family: OCR-A BT; -fx-font-weight: Bold;" text="Personal Organizer Table" textFill="#0ce122">
+         <VBox.margin>
+            <Insets top="-5.0" />
+         </VBox.margin>
+         <font>
+            <Font name="OCR-A BT" size="13.0" />
+         </font></Label>
+        <HBox alignment="CENTER_LEFT" spacing="10.0">
+            <children>
+            <Label style="-fx-text-fill: black;" text="Title" textFill="#ffffff30">
+               <HBox.margin>
+                  <Insets right="-4.0" top="4.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Georgia Bold" size="12.0" />
+               </font>
+            </Label>
+                <TextField fx:id="reminderTextField" prefWidth="200.0" promptText="Reminder Name">
+               <HBox.margin>
+                  <Insets left="-4.0" />
+               </HBox.margin></TextField>
+            <Label style="-fx-text-fill: black;" text="Date" textFill="#ffffff30">
+               <HBox.margin>
+                  <Insets left="-6.0" right="-4.0" top="3.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Georgia Bold" size="12.0" />
+               </font>
+            </Label>
+                <TextField fx:id="dateTextField" prefWidth="200.0" promptText="Reminder Date">
+               <HBox.margin>
+                  <Insets left="-5.0" />
+               </HBox.margin></TextField>
+            <Label style="-fx-text-fill: black;" text="Description" textFill="#ffffff30">
+               <HBox.margin>
+                  <Insets left="-7.0" right="-4.0" top="4.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Georgia Bold" size="12.0" />
+               </font>
+            </Label>
+                <TextField fx:id="descriptionTextField" prefWidth="200.0" promptText="Description">
+               <HBox.margin>
+                  <Insets left="-5.0" />
+               </HBox.margin></TextField>
+                <Button onAction="#handleAddReminder" style="-fx-text-fill: white; -fx-background-color: grey;" text="Add" />
+                <Button onAction="#handleUpdateReminder" style="-fx-text-fill: white; -fx-background-color: green;" text="Update" />
+                <Button onAction="#handleDeleteReminder" style="-fx-text-fill: white; -fx-background-color: red;" text="Delete" />
+                <Button onAction="#handleBackToHomepage" prefHeight="25.0" prefWidth="79.0" style="-fx-text-fill: white; -fx-background-color: blue;" text="Homepage" />
+            </children>
+        </HBox>
+        <TableView fx:id="remindersTable" style="-fx-background-color: black; -fx-border-color: black;">
+            <columns>
+                <TableColumn fx:id="idColumn" prefWidth="60.0" text="ID" />
+                <TableColumn fx:id="reminderNameColumn" prefWidth="342.0" text="Reminder Tilte" />
+                <TableColumn fx:id="reminderDateColumn" prefWidth="196.0" text="Reminder Date" />
+                <TableColumn fx:id="descriptionColumn" prefWidth="398.0" text="Description" />
+            </columns>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <effect>
+            <Glow level="0.18">
+               <input>
+                  <InnerShadow />
+               </input>
+            </Glow>
+         </effect>
+        </TableView>
+    </children>
+</VBox>
