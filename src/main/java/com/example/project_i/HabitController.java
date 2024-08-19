@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.chart.PieChart;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -29,6 +30,7 @@ public class HabitController implements Initializable {
     @FXML private TableColumn<Habit, String> habitNameColumn;
     @FXML private TableColumn<Habit, LocalDate> startDateColumn;
     @FXML private TableColumn<Habit, String> statusColumn;
+    @FXML private PieChart habitPieChart;
 
     private ObservableList<Habit> habitList;
 
@@ -42,6 +44,7 @@ public class HabitController implements Initializable {
         startDateColumn.setCellValueFactory(new PropertyValueFactory<>("startDate"));
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
         loadHabits();
+        populatePieChart();
     }
 
     @FXML
@@ -70,6 +73,7 @@ public class HabitController implements Initializable {
                 startDatePicker.setValue(null);
                 statusChoiceBox.setValue(null);
                 loadHabits();
+                populatePieChart();
             }
         } catch (SQLException e) {
             showAlert("Database Error", "Error occurred while adding the habit.");
@@ -87,6 +91,7 @@ public class HabitController implements Initializable {
                 statement.setInt(1, selectedHabit.getId());
                 statement.executeUpdate();
                 loadHabits();
+                populatePieChart();
                 habitField.clear();
                 startDatePicker.setValue(null);
                 statusChoiceBox.setValue(null);
@@ -123,6 +128,7 @@ public class HabitController implements Initializable {
                     startDatePicker.setValue(null);
                     statusChoiceBox.setValue(null);
                     loadHabits();
+                    populatePieChart();
                 }
             } catch (SQLException e) {
                 showAlert("Database Error", "Error occurred while updating the habit.");
@@ -150,6 +156,26 @@ public class HabitController implements Initializable {
             }
         } catch (SQLException e) {
             showAlert("Database Error", "Error occurred while fetching the habits.");
+            e.printStackTrace();
+        }
+    }
+
+    private void populatePieChart() {
+        habitPieChart.getData().clear();
+        String sql = "SELECT status, COUNT(*) AS count FROM habits GROUP BY status";
+
+        try (Connection connection = DBConnection.getInstance().getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql);
+             ResultSet resultSet = preparedStatement.executeQuery()) {
+
+            while (resultSet.next()) {
+                String status = resultSet.getString("status");
+                int count = resultSet.getInt("count");
+                PieChart.Data slice = new PieChart.Data(status, count);
+                habitPieChart.getData().add(slice);
+            }
+        } catch (SQLException e) {
+            showAlert("Database Error", "Error occurred while fetching data for the pie chart.");
             e.printStackTrace();
         }
     }

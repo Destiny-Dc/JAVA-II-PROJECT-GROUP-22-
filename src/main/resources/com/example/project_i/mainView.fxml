@@ -110,7 +110,7 @@
                   <Font name="Century" size="30.0" />
                </font>
             </Label>
-            <PieChart fx:id="habitPieChart" title="Habit Status" />
+            <PieChart fx:id="habitPieChart" title="Task Status" />
          </children>
       </VBox>
    </children>

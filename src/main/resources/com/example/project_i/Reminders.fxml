@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -59,10 +60,22 @@
                <HBox.margin>
                   <Insets left="-5.0" />
                </HBox.margin></TextField>
-                <Button onAction="#handleAddReminder" style="-fx-text-fill: white; -fx-background-color: grey;" text="Add" />
-                <Button onAction="#handleUpdateReminder" style="-fx-text-fill: white; -fx-background-color: green;" text="Update" />
-                <Button onAction="#handleDeleteReminder" style="-fx-text-fill: white; -fx-background-color: red;" text="Delete" />
-                <Button onAction="#handleBackToHomepage" prefHeight="25.0" prefWidth="79.0" style="-fx-text-fill: white; -fx-background-color: blue;" text="Homepage" />
+                <Button onAction="#handleAddReminder" style="-fx-text-fill: white; -fx-background-color: grey;" text="Add">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+                <Button onAction="#handleUpdateReminder" style="-fx-text-fill: white; -fx-background-color: green;" text="Update">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+                <Button onAction="#handleDeleteReminder" style="-fx-text-fill: white; -fx-background-color: red;" text="Delete">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+                <Button onAction="#handleBackToHomepage" prefHeight="25.0" prefWidth="79.0" style="-fx-text-fill: white; -fx-background-color: blue;" text="Homepage">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
             </children>
         </HBox>
         <TableView fx:id="remindersTable" style="-fx-background-color: black; -fx-border-color: black;">
